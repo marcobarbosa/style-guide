@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<link href='http://fonts.googleapis.com/css?family=Abril+Fatface|Julius+Sans+One' rel='stylesheet' type='text/css'>
 	<meta charset="UTF-8">
 	<title>Style Guide</title>
-
 	<link rel="stylesheet" href="css/style.css">
-	<script src="js/vendor/jquery.min.js"></script>
-	<script>
-	$(document).ready(function(){	
-		$(".forms").click(function(){
-			$(".content").load("../content/forms.html");
-		});
-		$(".typography").click(function(){
-			$(".content").load("../content/typography.html");
-		});
-		$(".modules").click(function(){
-			$(".content").load("../content/modules.html");
-		});
-		$(".media").click(function(){
-			$(".content").load("../content/media.html");
-		});		
-	});		
-	</script>
 </head>
 <body>
-	<!-- Navbar -->
-	<ul id="nav">
-		<li class="styleguide"><a href="index.html">Style Guide</a></li>
-		<li class="forms"><a href="#">Forms</a></li>
-		<li class="typography"><a href="#">Typography</a></li>
-		<li class="modules"><a href="#">Modules</a></li>
-		<li class="media"><a href="#">Media</a></li>
-	</ul>
-	<!-- Content -->
-	<div class="content"></div>
+
+	<div class="wrapper">
+
+		<!-- Navbar -->
+		<aside class="sidebar">
+			<h1>Style Guide</h1>
+			<ul class="nav">
+				<li class="forms nav-item"><a class="nav-link" href="#">Forms</a></li>
+				<li class="typography nav-item"><a class="nav-link" href="#">Typography</a></li>
+				<li class="modules nav-item"><a class="nav-link" href="#">Modules</a></li>
+				<li class="media nav-item"><a class="nav-link" href="#">Media</a></li>
+			</ul>
+		</aside>
+
+		<!-- Content -->
+		<section class="content"></section>
+
+	</div>
+
+	<!-- Scripts always at the bottom -->
+	<script src="js/vendor/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		// Always cache a selector if used more than once
+		var $content = $('.content');
+		// TODO
+		// There is pattern here..Look at the code repetition.
+		// How could you turn these 8 lines into 2 ?
+		// Tip: common class names and data-attributes
+		$(".forms").click(function(){
+			$content.load("../content/forms.html");
+		});
+		$(".typography").click(function(){
+			$content.load("../content/typography.html");
+		});
+		$(".modules").click(function(){
+			$content.load("../content/modules.html");
+		});
+		$(".media").click(function(){
+			$content.load("../content/media.html");
+		});
+	});
+	</script>
 </body>
 </html>
